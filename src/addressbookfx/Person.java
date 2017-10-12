@@ -15,6 +15,10 @@ public class Person {
         this.city = city;
         this.zip = zip;
     }
+
+    Person() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     // Getters
     public String getFirstName() { return firstName; }

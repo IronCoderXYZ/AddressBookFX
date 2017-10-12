@@ -7,7 +7,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="addressbookfx.MainController">
    <children>
       <TableView fx:id="tableView" layoutX="33.0" layoutY="28.0" prefHeight="200.0" prefWidth="450.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
@@ -93,9 +92,9 @@
       </GridPane>
       <HBox layoutX="505.0" layoutY="453.0" spacing="60.0">
          <children>
-            <Button layoutX="505.0" layoutY="453.0" mnemonicParsing="false" text="New" />
-            <Button layoutX="605.0" layoutY="453.0" mnemonicParsing="false" text="Edit" />
-            <Button layoutX="716.0" layoutY="453.0" mnemonicParsing="false" text="Delete" />
+            <Button layoutX="505.0" layoutY="453.0" mnemonicParsing="false" onAction="#addPressed" text="Add" />
+            <Button layoutX="605.0" layoutY="453.0" mnemonicParsing="false" onAction="#editPressed" text="Edit" />
+            <Button layoutX="716.0" layoutY="453.0" mnemonicParsing="false" onAction="#deletePressed" text="Delete" />
          </children>
       </HBox>
    </children>

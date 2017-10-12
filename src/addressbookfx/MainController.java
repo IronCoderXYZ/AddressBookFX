@@ -27,6 +27,12 @@ public class MainController {
         tableView.setItems(addressBookFX.getContactList());
     }
     
+    public void refreshTableView() {
+        tableView.setItems(null);
+        tableView.layout();
+        tableView.setItems(addressBookFX.getContactList());
+    }
+    
     public void showDetails(Person person) {
         fNameLabel.setText(person.getFirstName());
         lNameLabel.setText(person.getLastName());
@@ -37,16 +43,21 @@ public class MainController {
     
     @FXML
     public void addPressed() {
-        
+        addressBookFX.addWindow(null);
     }
     
     @FXML
     public void editPressed() {
-        
+        Person person = tableView.getSelectionModel().getSelectedItem();
+        Boolean addPressed = addressBookFX.addWindow(person);
+        if (addPressed) {
+            refreshTableView();
+        }
     }
     
     @FXML
     public void deletePressed() {
-        
+        int index = tableView.getSelectionModel().getSelectedIndex();
+        addressBookFX.getContactList().remove(index);
     }
 }

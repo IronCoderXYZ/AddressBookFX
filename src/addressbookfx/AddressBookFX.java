@@ -36,6 +36,27 @@ public class AddressBookFX extends Application {
         }
     }
     
+    public boolean addWindow(Person person) {
+        try {
+            FXMLLoader loader = new FXMLLoader(AddressBookFX.class.getResource("AddView.fxml"));
+            AnchorPane pane = loader.load();
+            Scene scene = new Scene(pane);
+            
+            Stage stage = new Stage();
+            
+            AddController controller = loader.getController();
+            controller.setMain(this, stage, person);
+            
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.showAndWait();
+            return controller.addFinished();
+        } catch(IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
     private ObservableList<Person> contactList = FXCollections.observableArrayList();
     public ObservableList<Person> getContactList() { return contactList; }
     
